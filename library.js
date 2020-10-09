@@ -1,4 +1,16 @@
-let myLibrary = [];
+function Library(){
+  this.books = [];
+}
+
+Library.prototype.addBook = function(book){
+  this.books.push(book);
+}
+
+Library.prototype.display = function(){
+  for(let book of this.books){
+    console.log(book);
+  }
+}
 
 function Book(title, author, pages){
   this.title = title;
@@ -6,14 +18,13 @@ function Book(title, author, pages){
   this.pages = pages;
 }
 
-function addBookToLibrary(library, book){
-  library.push(book)
-}
+let myLib = new Library();
 
-const book1 = new Book("me", "me", 10)
-const book2 = new Book("you", "you", 55)
+const book1 = new Book("me", "me", 10);
+const book2 = new Book("you", "you", 55);
 
-addBookToLibrary(myLibrary, book1)
-addBookToLibrary(myLibrary, book2)
+myLib.addBook(book1);
+myLib.addBook(book2);
 
-console.log(myLibrary)
+
+myLib.display();
