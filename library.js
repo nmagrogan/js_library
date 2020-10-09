@@ -1,5 +1,7 @@
 const container = document.querySelector(".container");
 
+
+
 function Library(){
   this.books = [];
 }
@@ -31,6 +33,16 @@ function displayLibrary(lib){
     container.appendChild(box);
   }
 }
+
+function submit(event) {
+  console.log("hello");
+  event.preventDefault();
+}
+
+const form = document.getElementById('form');
+
+form.addEventListener('submit', submit);
+
 
 
 displayLibrary(myLib);
