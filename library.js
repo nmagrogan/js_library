@@ -8,6 +8,15 @@ function Library(){
 
 Library.prototype.addBook = function(book){
   this.books.push(book);
+  this.updateDisplay(book);
+}
+
+Library.prototype.updateDisplay = function(book){
+
+  let box = document.createElement("div");
+  box.textContent = "Title: "+ book.title + " Author: " + book.author + " Pages:" + book.pages.toString();
+  container.appendChild(box);
+
 }
 
 
@@ -26,23 +35,23 @@ myLib.addBook(book1);
 myLib.addBook(book2);
 
 
-function displayLibrary(lib){
-  for(let book of lib.books){
-    let box = document.createElement("div");
-    box.textContent = "Title: "+ book.title + " Author: " + book.author + " Pages:" + book.pages.toString();
-    container.appendChild(box);
-  }
-}
-
 function submit(event) {
-  console.log("hello");
+
+  let title = document.getElementById('title');
+  let author = document.getElementById('author');
+  let pages = document.getElementById('pages');
+
+  const newBook = new Book(title.value, author.value, pages.value);
+
+  myLib.addBook(newBook);
+
+  title.value = "";
+  author.value = "";
+  pages.value = "";
+
   event.preventDefault();
 }
 
 const form = document.getElementById('form');
 
 form.addEventListener('submit', submit);
-
-
-
-displayLibrary(myLib);
