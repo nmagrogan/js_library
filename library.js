@@ -19,8 +19,9 @@ Library.prototype.updateDisplay = function(book){
   var button = document.createElement("button");
   button.innerHTML = "Delete";
 
+  box.appendChild(button);
   container.appendChild(box);
-  container.appendChild(button);
+
 
 }
 
