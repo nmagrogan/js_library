@@ -18,6 +18,9 @@ Library.prototype.updateDisplay = function(book){
 
   var button = document.createElement("button");
   button.innerHTML = "Delete";
+  button.addEventListener('click', function(){
+    deleteBook(book.title);
+  });
 
   box.setAttribute("id", book.title);
 
@@ -59,6 +62,13 @@ function submit(event) {
 
   event.preventDefault();
 }
+
+function deleteBook(event){
+  delete myLib.books[event];
+  const book = document.getElementById(event);
+  container.removeChild(book)
+}
+
 
 const form = document.getElementById('form');
 
