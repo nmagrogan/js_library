@@ -15,7 +15,12 @@ Library.prototype.updateDisplay = function(book){
 
   let box = document.createElement("div");
   box.textContent = "Title: "+ book.title + " Author: " + book.author + " Pages:" + book.pages.toString();
+
+  var button = document.createElement("button");
+  button.innerHTML = "Delete";
+
   container.appendChild(box);
+  container.appendChild(button);
 
 }
 
