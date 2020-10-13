@@ -3,11 +3,11 @@ const container = document.querySelector(".container");
 
 
 function Library(){
-  this.books = [];
+  this.books = {};
 }
 
 Library.prototype.addBook = function(book){
-  this.books.push(book);
+  this.books[book.title] = book;
   this.updateDisplay(book);
 }
 
@@ -18,6 +18,8 @@ Library.prototype.updateDisplay = function(book){
 
   var button = document.createElement("button");
   button.innerHTML = "Delete";
+
+  box.setAttribute("id", book.title);
 
   box.appendChild(button);
   container.appendChild(box);
